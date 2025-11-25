@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Attendance — School Management System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/attendance.css">
+</head>
+
+<body>
+<div class="app-shell">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-logo">S</div>
+      <div class="brand-text">
+        <h3>SchoolCMS</h3>
+        <p id="sidebarSchoolName">My School</p>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-item">📊 Dashboard</a>
+      <a href="students.html" class="nav-item">🎓 Students</a>
+      <a href="teachers.html" class="nav-item">👨‍🏫 Teachers</a>
+      <a href="classes.html" class="nav-item">🏫 Classes</a>
+      <a href="timetable.html" class="nav-item">📅 Timetable</a>
+      <a href="attendance.html" class="nav-item active">📝 Attendance</a>
+      <a href="fees.html" class="nav-item">💰 Fees</a>
+      <a href="messages.html" class="nav-item">💬 Messages</a>
+      <a href="settings.html" class="nav-item">⚙️ Settings</a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="logout-btn" id="logoutBtn">Logout</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <header class="topbar">
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <h1>Attendance</h1>
+
+      <div class="topbar-right">
+        <button class="topbar-btn" id="themeToggle">🌙</button>
+        <div class="topbar-user">
+          <div class="user-avatar">A</div>
+          <div class="user-info"><span id="userEmail">admin@example.com</span></div>
+        </div>
+      </div>
+    </header>
+
+    <section class="content">
+
+      <div class="attendance-header">
+        <h2>Daily Attendance</h2>
+        <p class="text-muted">Select class & date to record attendance.</p>
+      </div>
+
+      <div class="attendance-toolbar">
+
+        <label>
+          Class
+          <select id="attClassSelect"></select>
+        </label>
+
+        <label>
+          Section
+          <select id="attSectionSelect"></select>
+        </label>
+
+        <label>
+          Date
+          <input type="date" id="attDate">
+        </label>
+
+        <button class="btn-primary" id="loadAttendanceBtn">Load</button>
+      </div>
+
+      <div id="attendanceTableWrapper"></div>
+
+    </section>
+
+  </main>
+
+</div>
+
+<script src="js/theme.js"></script>
+<script src="js/router.js"></script>
+<script src="js/attendance.js"></script>
+
+</body>
+</html>
+

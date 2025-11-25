@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fees — School Management System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/fees.css">
+</head>
+
+<body>
+<div class="app-shell">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-logo">S</div>
+      <div class="brand-text">
+        <h3>SchoolCMS</h3>
+        <p id="sidebarSchoolName">My School</p>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-item">📊 Dashboard</a>
+      <a href="students.html" class="nav-item">🎓 Students</a>
+      <a href="teachers.html" class="nav-item">👨‍🏫 Teachers</a>
+      <a href="classes.html" class="nav-item">🏫 Classes</a>
+      <a href="timetable.html" class="nav-item">📅 Timetable</a>
+      <a href="attendance.html" class="nav-item">📝 Attendance</a>
+      <a href="fees.html" class="nav-item active">💰 Fees</a>
+      <a href="messages.html" class="nav-item">💬 Messages</a>
+      <a href="settings.html" class="nav-item">⚙️ Settings</a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="logout-btn" id="logoutBtn">Logout</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <header class="topbar">
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <h1>Fees Management</h1>
+
+      <div class="topbar-right">
+        <button class="topbar-btn" id="themeToggle">🌙</button>
+        <div class="topbar-user">
+          <div class="user-avatar">A</div>
+          <div class="user-info"><span id="userEmail">admin@example.com</span></div>
+        </div>
+      </div>
+    </header>
+
+    <section class="content">
+
+      <!-- Stats -->
+      <div class="fee-stats">
+        <div class="stat-card">
+          <h3>Total Collected</h3>
+          <p id="feeCollected">₹0</p>
+        </div>
+        <div class="stat-card">
+          <h3>Total Due</h3>
+          <p id="feeDue">₹0</p>
+        </div>
+        <div class="stat-card">
+          <h3>Completion</h3>
+          <p id="feePercent">0%</p>
+        </div>
+      </div>
+
+      <!-- Fee Structure -->
+      <div class="fee-structure-box">
+        <h2>Fee Structure</h2>
+        <p class="text-muted">Set per-class fees here.</p>
+
+        <table class="fee-structure-table">
+          <thead>
+            <tr>
+              <th>Class</th>
+              <th>Tuition</th>
+              <th>Transport</th>
+              <th>Exam Fee</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="feeStructureBody"></tbody>
+        </table>
+
+        <button class="btn-primary" id="saveFeeStructureBtn">Save Structure</button>
+      </div>
+
+      <!-- Student Fee Table -->
+      <h2 style="margin-top:26px;">Students Fees</h2>
+
+      <table class="fees-table">
+        <thead>
+          <tr>
+            <th>Roll</th>
+            <th>Name</th>
+            <th>Class</th>
+            <th>Total</th>
+            <th>Paid</th>
+            <th>Due</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody id="feesStudentsBody"></tbody>
+      </table>
+
+    </section>
+
+  </main>
+
+</div>
+
+<!-- PAYMENT MODAL -->
+<div class="modal-backdrop" id="paymentModalBackdrop">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Record Payment</h3>
+      <button class="modal-close" id="closePaymentModal">✕</button>
+    </div>
+
+    <div class="modal-body">
+
+      <div id="paymentInfo"></div>
+
+      <form id="paymentForm">
+        <label>
+          Amount Paid
+          <input type="number" id="paymentAmount" required>
+        </label>
+
+        <label>
+          Note (optional)
+          <textarea id="paymentNote"></textarea>
+        </label>
+
+        <div class="modal-footer">
+          <button class="btn-secondary" id="cancelPaymentModal">Cancel</button>
+          <button class="btn-primary" type="submit">Save</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="js/theme.js"></script>
+<script src="js/router.js"></script>
+<script src="js/fees.js"></script>
+
+</body>
+</html>

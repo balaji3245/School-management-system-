@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Teachers — School Management System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/teachers.css" />
+</head>
+
+<body>
+<div class="app-shell">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-logo">S</div>
+      <div class="brand-text">
+        <h3>SchoolCMS</h3>
+        <p id="sidebarSchoolName">My School</p>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-item">
+        <span>📊</span> <span>Dashboard</span>
+      </a>
+      <a href="students.html" class="nav-item">
+        <span>🎓</span> <span>Students</span>
+      </a>
+      <a href="teachers.html" class="nav-item active">
+        <span>👨‍🏫</span> <span>Teachers</span>
+      </a>
+      <a href="classes.html" class="nav-item">
+        <span>🏫</span> <span>Classes</span>
+      </a>
+      <a href="timetable.html" class="nav-item">
+        <span>📅</span> <span>Timetable</span>
+      </a>
+      <a href="attendance.html" class="nav-item">
+        <span>📝</span> <span>Attendance</span>
+      </a>
+      <a href="fees.html" class="nav-item">
+        <span>💰</span> <span>Fees</span>
+      </a>
+      <a href="messages.html" class="nav-item">
+        <span>💬</span> <span>Messages</span>
+      </a>
+      <a href="settings.html" class="nav-item">
+        <span>⚙️</span> <span>Settings</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="logout-btn" id="logoutBtn">Logout</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <header class="topbar">
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <h1>Teachers</h1>
+
+      <div class="topbar-right">
+        <button class="topbar-btn" id="themeToggle">🌙</button>
+        <div class="topbar-user">
+          <div class="user-avatar">A</div>
+          <div class="user-info">
+            <span id="userEmail">admin@example.com</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="content">
+
+      <div class="teachers-header">
+        <div>
+          <h2>Teachers directory</h2>
+          <p class="text-muted">Manage school teachers and their subjects.</p>
+        </div>
+
+        <button class="btn-primary" id="openTeacherModal">+ Add Teacher</button>
+      </div>
+
+      <div class="teachers-toolbar">
+        <div class="toolbar-group">
+          <label>
+            Subject
+            <select id="filterSubject">
+              <option value="">All</option>
+              <option value="Maths">Maths</option>
+              <option value="Science">Science</option>
+              <option value="English">English</option>
+              <option value="Hindi">Hindi</option>
+              <option value="Social Science">Social Science</option>
+            </select>
+          </label>
+          <label>
+            Class
+            <select id="filterTClass">
+              <option value="">All</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </label>
+        </div>
+
+        <input
+          type="text"
+          id="searchTeachers"
+          placeholder="Search by name or ID"
+        />
+      </div>
+
+      <div class="teachers-table-wrapper">
+        <table class="teachers-table">
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Subject</th>
+            <th>Class</th>
+            <th>Phone</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody id="teachersTableBody">
+          <!-- populated by JS -->
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal-backdrop" id="teacherModalBackdrop">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="teacherModalTitle">Add Teacher</h3>
+      <button class="modal-close" id="closeTeacherModal">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <form id="teacherForm">
+
+        <input type="hidden" id="teacherId" />
+
+        <div class="form-row">
+          <label>
+            Full name
+            <input type="text" id="teacherName" required />
+          </label>
+
+          <label>
+            Teacher ID
+            <input type="text" id="teacherCode" required />
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label>
+            Subject
+            <select id="teacherSubject" required>
+              <option value="">Select...</option>
+              <option value="Maths">Maths</option>
+              <option value="Science">Science</option>
+              <option value="English">English</option>
+              <option value="Hindi">Hindi</option>
+              <option value="Social Science">Social Science</option>
+            </select>
+          </label>
+
+          <label>
+            Class assigned
+            <select id="teacherClass">
+              <option value="">None</option>
+              <option value="6">Class 6</option>
+              <option value="7">Class 7</option>
+              <option value="8">Class 8</option>
+              <option value="9">Class 9</option>
+              <option value="10">Class 10</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label>
+            Phone
+            <input type="text" id="teacherPhone" />
+          </label>
+
+          <label>
+            Email
+            <input type="email" id="teacherEmail" />
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label>
+            Education
+            <input type="text" id="teacherEducation" />
+          </label>
+          <label>
+            Joining Date
+            <input type="date" id="teacherJoinDate" />
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label>
+            Notes
+            <textarea id="teacherNotes" rows="2"></textarea>
+          </label>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" id="cancelTeacherModal">Cancel</button>
+          <button type="submit" class="btn-primary">Save</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="js/theme.js"></script>
+<script src="js/router.js"></script>
+<script src="js/teachers.js"></script>
+
+</body>
+</html>

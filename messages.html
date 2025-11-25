@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Messages — School Management System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/messages.css" />
+</head>
+
+<body>
+<div class="app-shell">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-logo">S</div>
+      <div class="brand-text">
+        <h3>SchoolCMS</h3>
+        <p id="sidebarSchoolName">My School</p>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-item">📊 Dashboard</a>
+      <a href="students.html" class="nav-item">🎓 Students</a>
+      <a href="teachers.html" class="nav-item">👨‍🏫 Teachers</a>
+      <a href="classes.html" class="nav-item">🏫 Classes</a>
+      <a href="timetable.html" class="nav-item">📅 Timetable</a>
+      <a href="attendance.html" class="nav-item">📝 Attendance</a>
+      <a href="fees.html" class="nav-item">💰 Fees</a>
+      <a href="messages.html" class="nav-item active">💬 Messages</a>
+      <a href="settings.html" class="nav-item">⚙️ Settings</a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="logout-btn" id="logoutBtn">Logout</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <header class="topbar">
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <h1>Messages</h1>
+
+      <div class="topbar-right">
+        <button class="topbar-btn" id="themeToggle">🌙</button>
+        <div class="topbar-user">
+          <div class="user-avatar">A</div>
+          <div class="user-info">
+            <span id="userEmail">admin@example.com</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="content messages-layout">
+
+      <!-- LEFT: Inbox -->
+      <div class="messages-pane messages-pane--left">
+        <div class="messages-pane-header">
+          <div>
+            <h2>Inbox</h2>
+            <p class="text-muted">Announcements and system messages.</p>
+          </div>
+        </div>
+
+        <div class="messages-filters">
+          <select id="filterType">
+            <option value="">All types</option>
+            <option value="announcement">Announcements</option>
+            <option value="direct">Direct</option>
+            <option value="system">System</option>
+          </select>
+
+          <select id="filterAudience">
+            <option value="">All audiences</option>
+            <option value="All">All</option>
+            <option value="Students">Students</option>
+            <option value="Teachers">Teachers</option>
+            <option value="Parents">Parents</option>
+          </select>
+
+          <input type="text" id="searchMessages" placeholder="Search title or body" />
+        </div>
+
+        <div class="messages-list" id="messagesList">
+          <!-- populated by JS -->
+        </div>
+      </div>
+
+      <!-- RIGHT: Detail + Compose -->
+      <div class="messages-pane messages-pane--right">
+
+        <!-- Selected message view -->
+        <div class="card message-detail" id="messageDetail">
+          <div class="message-detail-placeholder">
+            <p class="text-muted">Select a message on the left to view details.</p>
+          </div>
+        </div>
+
+        <!-- Compose -->
+        <div class="card message-compose">
+          <div class="messages-pane-header">
+            <h2>New Announcement</h2>
+          </div>
+
+          <form id="composeForm" class="compose-form">
+            <div class="compose-row">
+              <label>
+                Audience
+                <select id="composeAudience" required>
+                  <option value="All">All</option>
+                  <option value="Students">Students</option>
+                  <option value="Teachers">Teachers</option>
+                  <option value="Parents">Parents</option>
+                </select>
+              </label>
+
+              <label>
+                Type
+                <select id="composeType" required>
+                  <option value="announcement">Announcement</option>
+                  <option value="direct">Direct</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              Title
+              <input type="text" id="composeTitle" placeholder="Ex: PTM reminder" required />
+            </label>
+
+            <label>
+              Message
+              <textarea id="composeBody" rows="3" placeholder="Write your message..." required></textarea>
+            </label>
+
+            <div class="compose-footer">
+              <button type="submit" class="btn-primary">Send</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+<script src="js/theme.js"></script>
+<script src="js/router.js"></script>
+<script src="js/messages.js"></script>
+
+</body>
+</html>

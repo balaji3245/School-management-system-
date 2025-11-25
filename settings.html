@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Settings — School Management System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/settings.css">
+</head>
+
+<body>
+<div class="app-shell">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-logo" id="schoolLogo"></div>
+      <div class="brand-text">
+        <h3>SchoolCMS</h3>
+        <p id="sidebarSchoolName">My School</p>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-item">📊 Dashboard</a>
+      <a href="students.html" class="nav-item">🎓 Students</a>
+      <a href="teachers.html" class="nav-item">👨‍🏫 Teachers</a>
+      <a href="classes.html" class="nav-item">🏫 Classes</a>
+      <a href="timetable.html" class="nav-item">📅 Timetable</a>
+      <a href="attendance.html" class="nav-item">📝 Attendance</a>
+      <a href="fees.html" class="nav-item">💰 Fees</a>
+      <a href="messages.html" class="nav-item">💬 Messages</a>
+      <a href="settings.html" class="nav-item active">⚙️ Settings</a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="logout-btn" id="logoutBtn">Logout</button>
+    </div>
+  </aside>
+
+  <!-- MAIN PAGE -->
+  <main class="main">
+
+    <header class="topbar">
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <h1>Settings</h1>
+
+      <div class="topbar-right">
+        <button class="topbar-btn" id="themeToggle">🌙</button>
+        <div class="topbar-user">
+          <div class="user-avatar">A</div>
+          <div class="user-info"><span id="userEmail">admin@example.com</span></div>
+        </div>
+      </div>
+    </header>
+
+    <section class="content settings-grid">
+
+      <!-- School Settings -->
+      <div class="settings-card">
+        <h2>School Settings</h2>
+        <p class="text-muted">Customize basic school details.</p>
+
+        <label>
+          School Name
+          <input type="text" id="schoolNameInput" placeholder="Enter school name">
+        </label>
+
+        <label>
+          School Logo
+          <input type="file" id="schoolLogoInput" accept="image/*">
+        </label>
+
+        <button class="btn-primary" id="saveSchoolSettings">Save</button>
+      </div>
+
+      <!-- Profile Settings -->
+      <div class="settings-card">
+        <h2>Admin Profile</h2>
+        <p class="text-muted">Manage your account info.</p>
+
+        <label>
+          Email
+          <input type="email" id="adminEmailInput">
+        </label>
+
+        <label>
+          Change Password
+          <input type="password" id="adminPasswordInput" placeholder="New password">
+        </label>
+
+        <button class="btn-primary" id="saveProfileSettings">Save</button>
+      </div>
+
+      <!-- Theme Options -->
+      <div class="settings-card">
+        <h2>Theme Options</h2>
+        <p class="text-muted">Customize the look of the system.</p>
+
+        <label> Theme Color
+          <input type="color" id="themeColorPicker" value="#3b82f6">
+        </label>
+
+        <label>
+          Font Size
+          <select id="fontSizeSelect">
+            <option value="14">14px (Default)</option>
+            <option value="15">15px</option>
+            <option value="16">16px</option>
+            <option value="17">17px</option>
+          </select>
+        </label>
+
+        <button class="btn-primary" id="applyThemeBtn">Apply</button>
+      </div>
+
+      <!-- Notifications -->
+      <div class="settings-card">
+        <h2>Notification Settings</h2>
+        <p class="text-muted">Choose what alerts you want to receive.</p>
+
+        <label>
+          <input type="checkbox" id="notifAnnouncements"> Announcements
+        </label>
+        <label>
+          <input type="checkbox" id="notifFees"> Fees Alerts
+        </label>
+        <label>
+          <input type="checkbox" id="notifAttendance"> Attendance Alerts
+        </label>
+
+        <button class="btn-primary" id="saveNotifSettings">Save</button>
+      </div>
+
+      <!-- Danger Zone -->
+      <div class="settings-card danger-zone">
+        <h2>Danger Zone</h2>
+        <p class="text-muted">Reset all app data. This action cannot be undone.</p>
+
+        <button class="btn-danger" id="resetSystemBtn">Reset System</button>
+      </div>
+
+    </section>
+
+  </main>
+</div>
+
+<script src="js/theme.js"></script>
+<script src="js/router.js"></script>
+<script src="js/settings.js"></script>
+
+</body>
+</html>

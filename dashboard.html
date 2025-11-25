@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard — School Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-logo">S</div>
+            <div class="brand-text">
+                <h3>SchoolCMS</h3>
+                <p id="sidebarSchoolName">My School</p>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item active">
+                <span>📊</span> <span>Dashboard</span>
+            </a>
+            <a href="students.html" class="nav-item">
+                <span>🎓</span> <span>Students</span>
+            </a>
+            <a href="teachers.html" class="nav-item">
+                <span>👨‍🏫</span> <span>Teachers</span>
+            </a>
+            <a href="classes.html" class="nav-item">
+                <span>🏫</span> <span>Classes</span>
+            </a>
+            <a href="timetable.html" class="nav-item">
+                <span>📅</span> <span>Timetable</span>
+            </a>
+            <a href="attendance.html" class="nav-item">
+                <span>📝</span> <span>Attendance</span>
+            </a>
+            <a href="fees.html" class="nav-item">
+                <span>💰</span> <span>Fees</span>
+            </a>
+            <a href="messages.html" class="nav-item">
+                <span>💬</span> <span>Messages</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <span>⚙️</span> <span>Settings</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <button class="logout-btn" id="logoutBtn">Logout</button>
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <button class="menu-toggle" id="menuToggle">☰</button>
+
+            <h1>Dashboard</h1>
+
+            <div class="topbar-right">
+                <button class="topbar-btn" id="themeToggle">🌙</button>
+
+                <div class="topbar-user">
+                    <div class="user-avatar">A</div>
+                    <div class="user-info">
+                        <span id="userEmail">admin@example.com</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- PAGE CONTENT -->
+        <section class="content">
+
+            <!-- STAT CARDS -->
+            <div class="grid-stats">
+                <div class="stat-card">
+                    <h3>Students</h3>
+                    <p class="stat-number">1240</p>
+                    <span class="stat-meta">+32 this month</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Teachers</h3>
+                    <p class="stat-number">84</p>
+                    <span class="stat-meta">+3 this month</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Classes</h3>
+                    <p class="stat-number">56</p>
+                    <span class="stat-meta">Active</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Fee Collection</h3>
+                    <p class="stat-number">₹ 8.4L</p>
+                    <span class="stat-meta">78% goal</span>
+                </div>
+            </div>
+
+            <!-- CHARTS + ACTIVITY FEED -->
+            <div class="grid-2col">
+
+                <div class="card">
+                    <h3>Weekly Attendance</h3>
+                    <canvas id="attendanceChart"></canvas>
+                </div>
+
+                <div class="card">
+                    <h3>Recent Activity</h3>
+                    <ul class="activity-feed">
+                        <li>New student added to Class 7A</li>
+                        <li>Teacher updated timetable</li>
+                        <li>Fee payment received</li>
+                        <li>New message sent to parents</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- JS -->
+<script src="js/theme.js"></script>
+<script src="js/router.js"></script>
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>

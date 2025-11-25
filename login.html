@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login — School Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/auth.css" />
+  </head>
+  <body>
+    <div class="auth-shell">
+      <div class="auth-card">
+        <!-- LEFT: form -->
+        <div class="auth-main">
+          <div class="auth-brand">
+            <div class="auth-logo">S</div>
+            <div class="auth-brand-text">
+              <span class="auth-brand-title">SchoolCMS</span>
+              <span class="auth-brand-subtitle">Admin Console</span>
+            </div>
+          </div>
+
+          <div class="auth-heading">
+            <h1>Welcome back 👋</h1>
+            <p>Log in to manage students, teachers, attendance and fees.</p>
+          </div>
+
+          <div class="auth-tabs">
+            <button
+              class="auth-tab auth-tab--active"
+              type="button"
+              onclick="window.location.href='login.html'"
+            >
+              <span>🔑</span><span>Login</span>
+            </button>
+            <button
+              class="auth-tab"
+              type="button"
+              onclick="window.location.href='register.html'"
+            >
+              <span>✨</span><span>Create account</span>
+            </button>
+          </div>
+
+          <form class="auth-form" id="loginForm">
+            <div id="loginError" class="auth-error" style="display: none"></div>
+
+            <div class="auth-field">
+              <label for="loginEmail">Email</label>
+              <div class="auth-input-wrapper">
+                <input
+                  id="loginEmail"
+                  type="email"
+                  class="auth-input"
+                  placeholder="admin@schoolcms.com"
+                  required
+                />
+                <span class="auth-input-icon">📧</span>
+              </div>
+            </div>
+
+            <div class="auth-field">
+              <label for="loginPassword">Password</label>
+              <div class="auth-input-wrapper">
+                <input
+                  id="loginPassword"
+                  type="password"
+                  class="auth-input"
+                  placeholder="••••••••"
+                  required
+                  minlength="6"
+                />
+                <span
+                  class="auth-input-icon auth-toggle-password"
+                  data-target="loginPassword"
+                >
+                  👁️
+                </span>
+              </div>
+            </div>
+
+            <div class="auth-meta-row">
+              <label class="auth-checkbox">
+                <input type="checkbox" id="rememberMe" />
+                <span>Remember me</span>
+              </label>
+              <a class="auth-link" href="forgot-password.html"
+                >Forgot password?</a
+              >
+            </div>
+
+            <button class="auth-button-primary" type="submit">
+              <span>
+                <span>Login to Dashboard</span>
+                <span>→</span>
+              </span>
+            </button>
+
+            <div class="auth-separator">
+              <span>Or continue with</span>
+            </div>
+
+            <div class="auth-social-row">
+              <button class="auth-social-btn" type="button">
+                <span>🌐</span><span>Google</span>
+              </button>
+              <button class="auth-social-btn" type="button">
+                <span>💼</span><span>Microsoft</span>
+              </button>
+            </div>
+          </form>
+
+          <div class="auth-footer-text">
+            Don’t have an account yet?
+            <a class="auth-link" href="register.html">Create one</a>.
+          </div>
+        </div>
+
+        <!-- RIGHT: hero -->
+        <aside class="auth-aside">
+          <div class="auth-aside-badge">
+            <span>✓</span>
+            <span>Trusted by 40+ schools</span>
+          </div>
+          <h2 class="auth-aside-title">Everything your school runs on.</h2>
+          <p class="auth-aside-text">
+            One dashboard for admissions, attendance, examinations, fees and
+            communication. Designed for admins, teachers and parents.
+          </p>
+
+          <div class="auth-aside-stats">
+            <div class="auth-stat-card">
+              <div class="auth-stat-label">Students managed</div>
+              <div class="auth-stat-value">12,480</div>
+              <div class="auth-stat-meta">+320 this month</div>
+            </div>
+            <div class="auth-stat-card">
+              <div class="auth-stat-label">Fee collection</div>
+              <div class="auth-stat-value">₹ 4.2Cr</div>
+              <div class="auth-stat-meta">93% on time</div>
+            </div>
+            <div class="auth-stat-card">
+              <div class="auth-stat-label">Attendance</div>
+              <div class="auth-stat-value">88%</div>
+              <div class="auth-stat-meta">This week</div>
+            </div>
+            <div class="auth-stat-card">
+              <div class="auth-stat-label">Messages sent</div>
+              <div class="auth-stat-value">3.1k</div>
+              <div class="auth-stat-meta">Last 30 days</div>
+            </div>
+          </div>
+
+          <ul class="auth-aside-timeline">
+            <li>
+              <span class="auth-aside-timeline-dot"></span>
+              <span>New admission added in Class 7A.</span>
+            </li>
+            <li>
+              <span class="auth-aside-timeline-dot"></span>
+              <span>Fee reminder sent to 24 parents.</span>
+            </li>
+            <li>
+              <span class="auth-aside-timeline-dot"></span>
+              <span>Timetable updated for Class 10B.</span>
+            </li>
+          </ul>
+
+          <div class="auth-aside-orb"></div>
+        </aside>
+      </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+  </body>
+</html>

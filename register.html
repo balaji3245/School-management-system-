@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Register — School Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/auth.css" />
+  </head>
+  <body>
+    <div class="auth-shell">
+      <div class="auth-card">
+        <div class="auth-main">
+          <div class="auth-brand">
+            <div class="auth-logo">S</div>
+            <div class="auth-brand-text">
+              <span class="auth-brand-title">SchoolCMS</span>
+              <span class="auth-brand-subtitle">Create admin</span>
+            </div>
+          </div>
+
+          <div class="auth-heading">
+            <h1>Create your admin account ✨</h1>
+            <p>We’ll use this account to manage your school workspace.</p>
+          </div>
+
+          <div class="auth-tabs">
+            <button
+              class="auth-tab"
+              type="button"
+              onclick="window.location.href='login.html'"
+            >
+              <span>🔑</span><span>Login</span>
+            </button>
+            <button class="auth-tab auth-tab--active" type="button">
+              <span>✨</span><span>Register</span>
+            </button>
+          </div>
+
+          <form class="auth-form" id="registerForm">
+            <div id="registerError" class="auth-error" style="display: none"></div>
+
+            <div class="auth-field">
+              <label for="regSchool">School name</label>
+              <div class="auth-input-wrapper">
+                <input
+                  id="regSchool"
+                  type="text"
+                  class="auth-input"
+                  placeholder="Green Valley High School"
+                  required
+                />
+                <span class="auth-input-icon">🏫</span>
+              </div>
+            </div>
+
+            <div class="auth-field">
+              <label for="regEmail">Admin email</label>
+              <div class="auth-input-wrapper">
+                <input
+                  id="regEmail"
+                  type="email"
+                  class="auth-input"
+                  placeholder="you@schoolname.com"
+                  required
+                />
+                <span class="auth-input-icon">📧</span>
+              </div>
+            </div>
+
+            <div class="auth-field">
+              <label for="regPassword">Password</label>
+              <div class="auth-input-wrapper">
+                <input
+                  id="regPassword"
+                  type="password"
+                  class="auth-input"
+                  placeholder="Minimum 6 characters"
+                  required
+                  minlength="6"
+                />
+                <span
+                  class="auth-input-icon auth-toggle-password"
+                  data-target="regPassword"
+                >
+                  👁️
+                </span>
+              </div>
+            </div>
+
+            <div class="auth-field">
+              <label for="regConfirm">Confirm password</label>
+              <div class="auth-input-wrapper">
+                <input
+                  id="regConfirm"
+                  type="password"
+                  class="auth-input"
+                  placeholder="Re-enter password"
+                  required
+                  minlength="6"
+                />
+                <span
+                  class="auth-input-icon auth-toggle-password"
+                  data-target="regConfirm"
+                >
+                  👁️
+                </span>
+              </div>
+            </div>
+
+            <div class="auth-meta-row">
+              <label class="auth-checkbox">
+                <input type="checkbox" id="regTerms" />
+                <span>I agree to the terms & privacy.</span>
+              </label>
+            </div>
+
+            <button class="auth-button-primary" type="submit">
+              <span>
+                <span>Create admin account</span>
+                <span>→</span>
+              </span>
+            </button>
+          </form>
+
+          <div class="auth-footer-text">
+            Already have an account?
+            <a class="auth-link" href="login.html">Back to login</a>.
+          </div>
+        </div>
+
+        <aside class="auth-aside">
+          <div class="auth-aside-badge">
+            <span>🚀</span>
+            <span>Set up in under 2 minutes</span>
+          </div>
+          <h2 class="auth-aside-title">Start with one admin. Scale later.</h2>
+          <p class="auth-aside-text">
+            Create a main admin for your school. You can later invite teachers,
+            accountants and coordinators with different roles & permissions.
+          </p>
+
+          <div class="auth-aside-stats">
+            <div class="auth-stat-card">
+              <div class="auth-stat-label">Role templates</div>
+              <div class="auth-stat-value">8</div>
+              <div class="auth-stat-meta">Fine-grained access</div>
+            </div>
+            <div class="auth-stat-card">
+              <div class="auth-stat-label">Parent logins</div>
+              <div class="auth-stat-value">Unlimited</div>
+              <div class="auth-stat-meta">Included</div>
+            </div>
+            <div class="auth-stat-card">
+              <div class="auth-stat-label">Setup time</div>
+              <div class="auth-stat-value">&lt; 30 min</div>
+              <div class="auth-stat-meta">On average</div>
+            </div>
+            <div class="auth-stat-card">
+              <div class="auth-stat-label">Support</div>
+              <div class="auth-stat-value">24×7</div>
+              <div class="auth-stat-meta">Email & chat</div>
+            </div>
+          </div>
+
+          <ul class="auth-aside-timeline">
+            <li>
+              <span class="auth-aside-timeline-dot"></span>
+              <span>Step 1: Create admin account.</span>
+            </li>
+            <li>
+              <span class="auth-aside-timeline-dot"></span>
+              <span>Step 2: Add classes & sections.</span>
+            </li>
+            <li>
+              <span class="auth-aside-timeline-dot"></span>
+              <span>Step 3: Invite teachers & staff.</span>
+            </li>
+          </ul>
+
+          <div class="auth-aside-orb"></div>
+        </aside>
+      </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+  </body>
+</html>

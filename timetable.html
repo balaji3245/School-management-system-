@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Timetable — School Management System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/timetable.css">
+</head>
+
+<body>
+<div class="app-shell">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-logo">S</div>
+      <div class="brand-text">
+        <h3>SchoolCMS</h3>
+        <p id="sidebarSchoolName">My School</p>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-item">📊 Dashboard</a>
+      <a href="students.html" class="nav-item">🎓 Students</a>
+      <a href="teachers.html" class="nav-item">👨‍🏫 Teachers</a>
+      <a href="classes.html" class="nav-item">🏫 Classes</a>
+      <a href="timetable.html" class="nav-item active">📅 Timetable</a>
+      <a href="attendance.html" class="nav-item">📝 Attendance</a>
+      <a href="fees.html" class="nav-item">💰 Fees</a>
+      <a href="messages.html" class="nav-item">💬 Messages</a>
+      <a href="settings.html" class="nav-item">⚙️ Settings</a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="logout-btn" id="logoutBtn">Logout</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <header class="topbar">
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <h1>Timetable</h1>
+
+      <div class="topbar-right">
+        <button class="topbar-btn" id="themeToggle">🌙</button>
+        <div class="topbar-user">
+          <div class="user-avatar">A</div>
+          <div class="user-info"><span id="userEmail">admin@example.com</span></div>
+        </div>
+      </div>
+    </header>
+
+    <section class="content">
+
+      <div class="timetable-header">
+        <div>
+          <h2>Manage Class Timetable</h2>
+          <p class="text-muted">Select class to view or edit its weekly schedule.</p>
+        </div>
+
+        <label class="class-selector-label">
+          Class
+          <select id="timetableClassSelect"></select>
+        </label>
+      </div>
+
+      <div id="timetableGridWrapper"></div>
+
+    </section>
+
+  </main>
+
+</div>
+
+<!-- MODAL FOR PERIOD ADD/EDIT -->
+<div class="modal-backdrop" id="periodModalBackdrop">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="periodModalTitle">Add Period</h3>
+      <button class="modal-close" id="closePeriodModal">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <form id="periodForm">
+
+        <input type="hidden" id="periodId">
+
+        <div class="form-row">
+          <label>
+            Day
+            <select id="periodDay" required>
+              <option value="">Select…</option>
+              <option value="Monday">Monday</option>
+              <option value="Tuesday">Tuesday</option>
+              <option value="Wednesday">Wednesday</option>
+              <option value="Thursday">Thursday</option>
+              <option value="Friday">Friday</option>
+              <option value="Saturday">Saturday</option>
+            </select>
+          </label>
+
+          <label>
+            Period #
+            <select id="periodNumber" required>
+              <option value="">Select…</option>
+              <option value="1">Period 1</option>
+              <option value="2">Period 2</option>
+              <option value="3">Period 3</option>
+              <option value="4">Period 4</option>
+              <option value="5">Period 5</option>
+              <option value="6">Period 6</option>
+              <option value="7">Period 7</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label>
+            Subject
+            <input type="text" id="periodSubject" placeholder="Maths, English…" required>
+          </label>
+
+          <label>
+            Teacher
+            <select id="periodTeacher" required></select>
+          </label>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" id="cancelPeriodModal">Cancel</button>
+          <button class="btn-primary" type="submit">Save</button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/theme.js"></script>
+<script src="js/router.js"></script>
+<script src="js/timetable.js"></script>
+
+</body>
+</html>

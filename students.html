@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Students — School Management System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/students.css" />
+</head>
+<body>
+<div class="app-shell">
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-logo">S</div>
+      <div class="brand-text">
+        <h3>SchoolCMS</h3>
+        <p id="sidebarSchoolName">My School</p>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-item">
+        <span>📊</span> <span>Dashboard</span>
+      </a>
+      <a href="students.html" class="nav-item active">
+        <span>🎓</span> <span>Students</span>
+      </a>
+      <a href="teachers.html" class="nav-item">
+        <span>👨‍🏫</span> <span>Teachers</span>
+      </a>
+      <a href="classes.html" class="nav-item">
+        <span>🏫</span> <span>Classes</span>
+      </a>
+      <a href="timetable.html" class="nav-item">
+        <span>📅</span> <span>Timetable</span>
+      </a>
+      <a href="attendance.html" class="nav-item">
+        <span>📝</span> <span>Attendance</span>
+      </a>
+      <a href="fees.html" class="nav-item">
+        <span>💰</span> <span>Fees</span>
+      </a>
+      <a href="messages.html" class="nav-item">
+        <span>💬</span> <span>Messages</span>
+      </a>
+      <a href="settings.html" class="nav-item">
+        <span>⚙️</span> <span>Settings</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="logout-btn" id="logoutBtn">Logout</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <h1>Students</h1>
+
+      <div class="topbar-right">
+        <button class="topbar-btn" id="themeToggle">🌙</button>
+        <div class="topbar-user">
+          <div class="user-avatar">A</div>
+          <div class="user-info">
+            <span id="userEmail">admin@example.com</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENT -->
+    <section class="content">
+
+      <div class="students-header">
+        <div>
+          <h2>Student directory</h2>
+          <p class="text-muted">View, filter and manage all enrolled students.</p>
+        </div>
+        <button class="btn-primary" id="openAddStudentModal">+ Add Student</button>
+      </div>
+
+      <div class="students-toolbar">
+        <div class="toolbar-group">
+          <label>
+            Class
+            <select id="filterClass">
+              <option value="">All</option>
+              <option value="6">Class 6</option>
+              <option value="7">Class 7</option>
+              <option value="8">Class 8</option>
+              <option value="9">Class 9</option>
+              <option value="10">Class 10</option>
+            </select>
+          </label>
+          <label>
+            Section
+            <select id="filterSection">
+              <option value="">All</option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+            </select>
+          </label>
+          <label>
+            Fee status
+            <select id="filterFee">
+              <option value="">All</option>
+              <option value="Paid">Paid</option>
+              <option value="Pending">Pending</option>
+              <option value="Partial">Partial</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="toolbar-group">
+          <input
+            type="text"
+            id="searchStudents"
+            placeholder="Search by name or roll no."
+          />
+        </div>
+      </div>
+
+      <div class="students-table-wrapper">
+        <table class="students-table">
+          <thead>
+          <tr>
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Class</th>
+            <th>Section</th>
+            <th>Phone</th>
+            <th>Fee</th>
+            <th>Attendance</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody id="studentsTableBody">
+          <!-- populated by JS -->
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+  </main>
+</div>
+
+<!-- MODAL: ADD / EDIT STUDENT -->
+<div class="modal-backdrop" id="studentModalBackdrop">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="studentModalTitle">Add Student</h3>
+      <button class="modal-close" id="closeStudentModal">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="studentForm">
+        <input type="hidden" id="studentId" />
+        <div class="form-row">
+          <label>
+            Full name
+            <input type="text" id="studentName" required />
+          </label>
+          <label>
+            Roll no.
+            <input type="text" id="studentRoll" required />
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label>
+            Class
+            <select id="studentClass" required>
+              <option value="">Select...</option>
+              <option value="6">Class 6</option>
+              <option value="7">Class 7</option>
+              <option value="8">Class 8</option>
+              <option value="9">Class 9</option>
+              <option value="10">Class 10</option>
+            </select>
+          </label>
+          <label>
+            Section
+            <select id="studentSection" required>
+              <option value="">Select...</option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label>
+            Phone
+            <input type="text" id="studentPhone" />
+          </label>
+          <label>
+            Fee status
+            <select id="studentFeeStatus">
+              <option value="Paid">Paid</option>
+              <option value="Pending">Pending</option>
+              <option value="Partial">Partial</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label>
+            Attendance (%)
+            <input type="number" id="studentAttendance" min="0" max="100" />
+          </label>
+          <label>
+            Parent name
+            <input type="text" id="studentParentName" />
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label>
+            Parent phone
+            <input type="text" id="studentParentPhone" />
+          </label>
+          <label>
+            Address
+            <input type="text" id="studentAddress" />
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label>
+            Date of birth
+            <input type="date" id="studentDob" />
+          </label>
+          <label>
+            Admission date
+            <input type="date" id="studentAdmissionDate" />
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label>
+            Notes
+            <textarea id="studentNotes" rows="2"></textarea>
+          </label>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" id="cancelStudentModal">
+            Cancel
+          </button>
+          <button type="submit" class="btn-primary">
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="js/theme.js"></script>
+<script src="js/router.js"></script>
+<script src="js/students.js"></script>
+</body>
+</html>
